@@ -1,0 +1,22 @@
+import os
+import shutil
+
+from_dir="C:/Users/91950/Desktop/P102/F1"
+to_dir="C:/Users/91950/Desktop/P102/F2"
+listF1=os.listdir(from_dir)
+#print(listF1)
+for files in listF1:
+    name,extension=os.path.splitext(files)
+    if extension == "":
+        continue
+    if extension in ['.docx','.txt']:
+        path1=from_dir+'/'+files
+        path2=to_dir+'/'+"doc files"
+        path3=to_dir+'/'+"doc files"+'/'+files
+        print(path1)
+        print(path3)
+        if os.path.exists(path2):
+            shutil.move(path1,path3)
+        else:
+            os.makedirs(path2) 
+            shutil.move(path1,path3)   
